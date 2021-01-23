@@ -34,17 +34,9 @@
             target="_blank"
           >
           </q-btn>
-          <q-btn
-            round
-            dense
-            flat
-            icon="fas fa-heart"
-            style="color: #9d4182 !important"
-            type="a"
-            href="https://github.com/sponsors/pratik227"
-            target="_blank"
-          >
-          </q-btn>
+          <q-btn flat @click="logout">Logout</q-btn>
+          <q-btn flat to="/login">Login</q-btn>
+          <q-btn round dense flat> </q-btn>
           <q-btn round dense flat color="white" icon="notifications">
             <q-badge color="red" text-color="white" floating> 5 </q-badge>
             <q-menu>
@@ -330,6 +322,12 @@ export default {
     return {
       leftDrawerOpen: false,
     };
+  },
+  methods: {
+    logout() {
+      console.log("logout");
+      this.$store.dispatch("auth/logout", {});
+    },
   },
 };
 </script>

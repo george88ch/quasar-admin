@@ -18,6 +18,14 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const auth = firebase.auth();
 
+auth.onAuthStateChanged(function(user) {
+  if (user) {
+    console.log("Auth user", user);
+  } else {
+    console.log("Auth no user", user);
+  }
+});
+
 // collection references
 const usersCollection = db.collection("users");
 const postsCollection = db.collection("posts");
