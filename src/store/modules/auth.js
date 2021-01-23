@@ -14,6 +14,9 @@ const getters = {
   salutation: state => {
     return state.userProfile.nickname;
   },
+  userProfile: state => {
+    return state.userProfile;
+  },
 
   isUserLoggedIn: state => {
     let ret = true;
@@ -61,6 +64,7 @@ const actions = {
   },
   async fetchUserProfile({ commit }, user) {
     // fetch user profile
+    console.log("fetchUser: ", user.uid);
     const userProfile = await fb.usersCollection.doc(user.uid).get();
 
     // set user profile in state
@@ -90,43 +94,3 @@ export default {
   actions,
   mutations
 };
-
-/*
-    async function signup({ dispatch }, form) {
-      // sign user up
-      const { user } = await fb.auth.createUserWithEmailAndPassword(
-        form.email,
-        form.password
-      );
-      // create user object in userCollections
-      await fb.usersCollection.doc(user.uid).set({
-        nickname: form.nickname,
-        email: form.email,
-      });
-      // fetch user profile and set in state
-      dispatch("fetchUserProfile", user);
-    },
-    */
-async function fetchUserProfile({ commit }, user) {
-  // fetch user profile
-  const userProfile = await fb.usersCollection.doc(user.uid).get();
-  console.log("data");
-
-  // set user profile in state
-  // commit("setUserProfile", userProfile.data());
-
-  // change route to dashboard
-  if (router.currentRoute.path === "/login") {
-    router.push("/");
-  }
-}
-async function logout({ commit }) {
-  // log user out
-  await fb.auth.signOut();
-
-  // clear user data from state
-  // commit("setUserProfile", {});
-
-  // redirect to login view
-  router.push("/dashboard2");
-}

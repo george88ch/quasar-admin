@@ -1,6 +1,7 @@
 import { firebase } from "@firebase/app";
 import "@firebase/auth";
 import "@firebase/firestore";
+import { LocalStorage, SessionStorage } from "quasar";
 
 // firebase init - add your own config here
 const firebaseConfig = {
@@ -20,9 +21,17 @@ const auth = firebase.auth();
 
 auth.onAuthStateChanged(function(user) {
   if (user) {
-    console.log("Auth user", user);
+    try {
+      LocalStorage.set("uid", user.uid);
+    } catch (e) {
+      console.log("ERROR: ", e.message);
+    }
   } else {
-    console.log("Auth no user", user);
+    try {
+      LocalStorage.set("uid", null);
+    } catch (e) {
+      console.log("ERROR: ", e.message);
+    }
   }
 });
 
