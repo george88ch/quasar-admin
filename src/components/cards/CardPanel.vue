@@ -201,16 +201,6 @@ export default {
       ],
       contacts: [
         {
-          name: "Pratik Patel",
-          position: "Developer",
-          avatar: "https://avatars2.githubusercontent.com/u/34883558?s=400&v=4",
-        },
-        {
-          name: "Razvan Stoenescu",
-          position: "Developer",
-          avatar: "https://cdn.quasar.dev/team/razvan_stoenescu.jpeg",
-        },
-        {
           name: "Jeff Galbraith",
           position: "Developer",
           avatar: "https://cdn.quasar.dev/team/jeff_galbraith.jpg",
