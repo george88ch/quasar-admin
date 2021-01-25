@@ -34,8 +34,8 @@
             target="_blank"
           >
           </q-btn>
-          <q-btn flat @click="logout">Logout</q-btn>
-          <q-btn flat to="/login">Login</q-btn>
+          <q-btn v-if="!isUser" flat @click="logout">Logout</q-btn>
+          <q-btn v-else flat to="/login">Login</q-btn>
           <q-btn round dense flat> </q-btn>
           <q-btn round dense flat color="white" icon="notifications">
             <q-badge color="red" text-color="white" floating> 5 </q-badge>
@@ -322,6 +322,15 @@ export default {
     return {
       leftDrawerOpen: false,
     };
+  },
+  computed: {
+    isUser: function () {
+      const user = this.$q.localStorage.getItem("uid");
+      if (!user) {
+        return false;
+      }
+      return true;
+    },
   },
   methods: {
     logout() {

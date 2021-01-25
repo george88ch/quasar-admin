@@ -1,27 +1,24 @@
 <template>
-  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 q-mt-sm">
-    <q-card>
-      <q-card-section class="bg-red text-white">
-        <q-item class="q-pa-none q-ml-xs">
-          <q-item-section class="q-pa-md q-ml-none text-white">
-            <q-item-label class="text-white text-h6 text-weight-bolder"
-              >User Profil</q-item-label
-            >
-            <q-item-label>Uid: {{ isUser }}</q-item-label>
-            <q-item-label>Hallo {{ salutation }}</q-item-label>
-          </q-item-section>
-          <q-item-section side class="q-mr-md text-white">
-            <q-icon name="person" color="white" size="44px"></q-icon>
-          </q-item-section>
-        </q-item>
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <q-card class="bg-transparent no-shadow no-border q-pt-sm">
+      <q-card-section class="q-pa-none">
+        <div class="row q-col-gutter-sm">
+          <div class="col-md-3 col-sm-12 col-xs-12">
+            <q-item class="q-pa-none q-ml-xs" style="background-color: red">
+              <q-item-section class="q-pa-md q-ml-none text-white">
+                <q-item-label class="text-white text-h6 text-weight-bolder"
+                  >User Profil</q-item-label
+                >
+                <q-item-label>Uid: {{ isUser }}</q-item-label>
+                <q-item-label>Hallo {{ salutation }}</q-item-label>
+              </q-item-section>
+              <q-item-section side class="q-mr-md text-white">
+                <q-icon name="person" color="white" size="44px"></q-icon>
+              </q-item-section>
+            </q-item>
+          </div>
+        </div>
       </q-card-section>
-
-      <q-separator />
-
-      <q-card-actions align="right">
-        <q-btn flat>Action 1</q-btn>
-        <q-btn flat>Action 2</q-btn>
-      </q-card-actions>
     </q-card>
   </div>
 </template>
@@ -95,8 +92,3 @@ export default {
   },
 };
 </script>
-<style lang="sass" scoped>
-.my-card
-  width: 100%
-  max-width: 250px
-</style>
